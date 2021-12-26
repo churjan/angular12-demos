@@ -8,13 +8,12 @@ import { NzDrawerService } from 'ng-zorro-antd/drawer';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  editFormComponent = EditFormComponent;
   constructor(private drawerService: NzDrawerService) {}
 
   openComponent(): void {
     this.drawerService.create({
       nzTitle: 'Component',
-      nzContent: this.editFormComponent,
+      nzContent: EditFormComponent,
     });
   }
 }
