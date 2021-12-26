@@ -11,11 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, EditFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

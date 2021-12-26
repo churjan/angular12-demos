@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { NzDrawerService } from 'ng-zorro-antd/drawer';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ng-zorro-drawer';
+  editFormComponent = EditFormComponent;
+  constructor(private drawerService: NzDrawerService) {}
+
+  openComponent(): void {
+    this.drawerService.create({
+      nzTitle: 'Component',
+      nzContent: this.editFormComponent,
+    });
+  }
 }
