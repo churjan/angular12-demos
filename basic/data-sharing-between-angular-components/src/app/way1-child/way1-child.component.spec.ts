@@ -8,9 +8,8 @@ describe('Way1ChildComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Way1ChildComponent ]
-    })
-    .compileComponents();
+      declarations: [Way1ChildComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

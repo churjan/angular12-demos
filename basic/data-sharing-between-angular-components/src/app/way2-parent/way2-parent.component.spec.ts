@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Way1ParentComponent } from './way1-parent.component';
+import { Way2ParentComponent } from './way2-parent.component';
 
-describe('Way1ParentComponent', () => {
-  let component: Way1ParentComponent;
-  let fixture: ComponentFixture<Way1ParentComponent>;
+describe('Way2ParentComponent', () => {
+  let component: Way2ParentComponent;
+  let fixture: ComponentFixture<Way2ParentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Way1ParentComponent],
+      declarations: [Way2ParentComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Way1ParentComponent);
+    fixture = TestBed.createComponent(Way2ParentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

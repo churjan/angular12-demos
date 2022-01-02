@@ -1,2 +1,5 @@
-<app-way1-child [data]="parentData" (send)="childData=$event"></app-way1-child>
-<h1 *ngIf="childData">Data from Child {{childData}}</h1>
+<app-way1-child
+  [data]="parentData"
+  (send)="childData = $event"
+></app-way1-child>
+<h1 *ngIf="childData">Data from Child {{ childData }}</h1>
