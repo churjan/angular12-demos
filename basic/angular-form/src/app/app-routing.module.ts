@@ -13,6 +13,7 @@ const routes: Routes = [
     path: 'form-array',
     component: FormArrayComponent,
   },
+  { path: 'form-builder', loadChildren: () => import('./form-builder/form-builder.module').then(m => m.FormBuilderModule) },
 ];
 
 @NgModule({
