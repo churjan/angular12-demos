@@ -1,0 +1,51 @@
+<form [formGroup]="contactForm">
+  <h1>contactForm</h1>
+  <div>
+    <label for="firstName">First Name </label>
+    <input type="text" id="firstName" formControlName="firstName" />
+    <button (click)="onGetValue('firstName')">get FormControl value</button>
+  </div>
+  <div>
+    <label for="lastName">Last Name </label>
+    <input type="text" id="lastName" formControlName="lastName" />
+    <button (click)="onGetValue('lastName')">get FormControl value</button>
+  </div>
+  <div formGroupName="address">
+    <h3>Address<button (click)="onGetValue('address')">get FormGroup value</button></h3>
+    <div>
+      <label for="street">Street</label>
+      <input
+        type="text"
+        id="street"
+        formControlName="street"
+      />
+      <button (click)="onGetValue('address.street')">get FormControl value</button>
+    </div>
+  </div>
+  <div>
+    <button (click)="onPatchValue()">PatchValue</button>
+  </div>
+  <div>
+  </div>
+  <div>
+    <button (click)="onReset()">Reset</button>
+  </div>
+  <div>
+    <button (click)="onSubmit()">Submit</button>
+  </div>
+</form>
+
+<div>
+  <h3>Form Status</h3>
+  <div><b>valid : </b>{{ contactForm.valid }}</div>
+  <div><b>invalid : </b>{{ contactForm.invalid }}</div>
+  <div><b>touched : </b>{{ contactForm.touched }}</div>
+  <div><b>untouched : </b>{{ contactForm.untouched }}</div>
+  <div><b>pristine : </b>{{ contactForm.pristine }}</div>
+  <div><b>dirty : </b>{{ contactForm.dirty }}</div>
+  <div><b>disabled : </b>{{ contactForm.disabled }}</div>
+  <div><b>enabled : </b>{{ contactForm.enabled }}</div>
+
+  <h3>Form Value</h3>
+  {{ contactForm.value | json }}
+</div>

@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { BasicFormbuilderComponent } from './basic-formbuilder/basic-formbuilder.component';
+const routes: Routes = [
+  {
+    path: 'basic-formbuilder',
+    component: BasicFormbuilderComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
