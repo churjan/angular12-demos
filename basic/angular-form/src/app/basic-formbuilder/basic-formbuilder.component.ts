@@ -31,14 +31,19 @@ export class BasicFormbuilderComponent implements OnInit {
       })
     });
 
-    this.contactForm.get("firstName")?.valueChanges.subscribe(selectedValue => {
-      console.log('firstName value changed')
-      console.log(selectedValue)
-      console.log(this.contactForm.get("firstName")?.value)
-      console.log(this.contactForm.value.firstName)   //still shows the old first name
-      setTimeout(() => {
-        console.log(this.contactForm.value.firstName)   //shows the latest first name
-      })
+    // this.contactForm.get("firstName")?.valueChanges.subscribe(selectedValue => {
+    //   console.log('firstName value changed')
+    //   console.log(selectedValue)
+    //   console.log(this.contactForm.get("firstName")?.value)
+    //   console.log(this.contactForm.value.firstName)   //still shows the old first name
+    //   setTimeout(() => {
+    //     console.log(this.contactForm.value.firstName)   //shows the latest first name
+    //   })
+    // })
+    this.contactForm.valueChanges.subscribe(newVal => {
+      console.log(newVal)
+      console.log(this.contactForm.value)
+
     })
   }
 
