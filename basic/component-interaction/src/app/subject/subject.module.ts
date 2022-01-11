@@ -7,14 +7,7 @@ import { Sibling1Component } from './sibling1/sibling1.component';
 import { Sibling2Component } from './sibling2/sibling2.component';
 
 @NgModule({
-  declarations: [
-    SubjectComponent,
-    Sibling1Component,
-    Sibling2Component
-  ],
-  imports: [
-    CommonModule,
-    SubjectRoutingModule
-  ]
+  declarations: [SubjectComponent, Sibling1Component, Sibling2Component],
+  imports: [CommonModule, SubjectRoutingModule],
 })
-export class SubjectModule { }
+export class SubjectModule {}
