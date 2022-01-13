@@ -12,11 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
 import { ExpandTableComponent } from './expand-table/expand-table.component';
+import { TreeTableComponent } from './tree-table/tree-table.component';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [AppComponent, ExpandTableComponent],
+  declarations: [AppComponent, ExpandTableComponent, TreeTableComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
