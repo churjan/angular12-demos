@@ -1,23 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface TreeNodeInterface {
-  key: string;
-  name: string;
-  age?: number;
-  level?: number;
-  expand?: boolean;
-  address?: string;
-  children?: TreeNodeInterface[];
-  parent?: TreeNodeInterface;
-}
-
 @Component({
   selector: 'app-tree-table',
   templateUrl: './tree-table.component.html',
   styleUrls: ['./tree-table.component.scss'],
 })
 export class TreeTableComponent implements OnInit {
-  listOfMapData: TreeNodeInterface[] = [
+  listOfMapData: any[] = [
     {
       key: `1`,
       name: 'John Brown sr.',
@@ -81,16 +70,16 @@ export class TreeTableComponent implements OnInit {
       address: 'Sidney No. 1 Lake Park',
     },
   ];
-  mapOfExpandedData: { [key: string]: TreeNodeInterface[] } = {};
+  mapOfExpandedData: { [key: string]: any[] } = {};
 
   collapse(
-    array: TreeNodeInterface[],
-    data: TreeNodeInterface,
+    array: any[],
+    data: any,
     $event: boolean
   ): void {
     if (!$event) {
       if (data.children) {
-        data.children.forEach((d) => {
+        data.children.forEach((d:any) => {
           const target = array.find((a) => a.key === d.key)!;
           target.expand = false;
           this.collapse(array, target, false);
@@ -101,9 +90,9 @@ export class TreeTableComponent implements OnInit {
     }
   }
 
-  convertTreeToList(root: TreeNodeInterface): TreeNodeInterface[] {
-    const stack: TreeNodeInterface[] = [];
-    const array: TreeNodeInterface[] = [];
+  convertTreeToList(root: any): any[] {
+    const stack: any[] = [];
+    const array: any[] = [];
     const hashMap = {};
     stack.push({ ...root, level: 0, expand: false });
 
@@ -126,9 +115,9 @@ export class TreeTableComponent implements OnInit {
   }
 
   visitNode(
-    node: TreeNodeInterface,
+    node: any,
     hashMap: { [key: string]: boolean },
-    array: TreeNodeInterface[]
+    array: any[]
   ): void {
     if (!hashMap[node.key]) {
       hashMap[node.key] = true;
