@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ExpandTableComponent } from './expand-table/expand-table.component';
 import { TreeTableComponent } from './tree-table/tree-table.component';
+import { CrudTreeTableComponent } from './crud-tree-table/crud-tree-table.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'tree-table',
     component: TreeTableComponent,
+  },
+  {
+    path: 'crud-tree-table',
+    component: CrudTreeTableComponent,
   },
 ];
 
