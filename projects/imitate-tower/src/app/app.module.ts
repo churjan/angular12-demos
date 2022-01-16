@@ -12,11 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { TreeNodeComponent } from './edit-task/tree-node/tree-node.component';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [AppComponent, EditTaskComponent],
+  declarations: [AppComponent, EditTaskComponent, TreeNodeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

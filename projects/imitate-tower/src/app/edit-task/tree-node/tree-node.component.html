@@ -1,0 +1,53 @@
+<div style="width: 300px">
+  <nz-tree
+    [nzData]="nodes"
+    [nzBlockNode]="true"
+    [nzDraggable]="true"
+    [nzExpandedIcon]="expandedIconTpl"
+    [nzTreeTemplate]="treeTemplateTpl"
+    [nzBeforeDrop]="beforeDrop.bind(this)"
+    (nzClick)="onClick($event)"
+  >
+    <ng-template #expandedIconTpl let-node>
+      <i
+        *ngIf="node.children.length"
+        nz-icon
+        [nzType]="node.isExpanded ? 'caret-right' : 'caret-down'"
+      >
+      </i>
+    </ng-template>
+    <ng-template #treeTemplateTpl let-node>
+      <span class="title" [class]="{ bold: node.level === 0 }">{{ node.title }}</span>
+      <button
+        nz-button
+        nzType="text"
+        nzSize="small"
+        nz-tooltip
+        nzTooltipTitle="{{onReturnTooltipText(node.level,'edit')}}"
+        (click)="onNodeEdit(node, $event)"
+      >
+        <i nz-icon nzType="edit" nzTheme="outline"></i>
+      </button>
+      <button
+        nz-button
+        nzType="text"
+        nzSize="small"
+        nz-tooltip
+        nzTooltipTitle="{{onReturnTooltipText(node.level,'add')}}"
+        (click)="onNodeAdd(node, $event)"
+      >
+        <i nz-icon nzType="plus" nzTheme="outline"></i>
+      </button>
+      <button
+        nz-button
+        nzType="text"
+        nzSize="small"
+        nz-tooltip
+        nzTooltipTitle="{{onReturnTooltipText(node.level,'delete')}}"
+        (click)="onNodeDelete(node, $event)"
+      >
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
+      </button>
+    </ng-template>
+  </nz-tree>
+</div>
