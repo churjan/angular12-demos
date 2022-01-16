@@ -1,0 +1,16 @@
+.edit-task-view{
+  display: flex;
+  padding: 16px;
+}
+.sidebar-view{
+  width: 200px;
+  margin-right:16px;
+}
+.table-tree-view{
+  flex-grow: 1;
+}
+:host ::ng-deep{
+  .bold{
+    font-weight: bold;
+  }
+}

@@ -6,14 +6,12 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-tree-node',
   templateUrl: './tree-node.component.html',
-  styleUrls: ['./tree-node.component.scss']
+  styleUrls: ['./tree-node.component.scss'],
 })
 export class TreeNodeComponent implements OnInit {
+  constructor(private message: NzMessageService) {}
 
-  constructor(private message: NzMessageService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   nodes = [
     {
       title: '分组a',
@@ -35,58 +33,62 @@ export class TreeNodeComponent implements OnInit {
     },
   ];
   beforeDrop(arg: NzFormatBeforeDropEvent): Observable<boolean> {
-    console.log(arg)
-    if(arg.dragNode.level===0){
-      if(arg.node.level!==arg.dragNode.level){
-        this.message.error('分组不能移动到任务')
+    console.log(arg);
+    if (arg.dragNode.level === 0) {
+      if (arg.node.level !== arg.dragNode.level) {
+        this.message.error('分组不能移动到任务');
         return of(false);
-      }else{
+      } else {
         return of(true);
       }
-    }else{
-      if(arg.node.level===0){
-        this.message.error('任务不能移动到分组')
+    } else {
+      if (arg.node.level === 0 && arg.pos !== 0) {
+        this.message.error('任务不能移动到分组');
         return of(false);
-      }else{
-      return of(true);
+      } else {
+        return of(true);
       }
     }
   }
-  onClick(event){
-    console.log(event)
+  onClick(event) {
+    console.log(event);
   }
 
-  onNodeEdit(node,e){
-    e.stopPropagation()
+  onDragStart(event) {
+    console.log(event);
   }
 
-  onNodeAdd(node,e){
-    e.stopPropagation()
+  onNodeEdit(node, e) {
+    e.stopPropagation();
   }
 
-  onNodeDelete(node,e){
-    e.stopPropagation()
+  onNodeAdd(node, e) {
+    e.stopPropagation();
   }
 
-  onReturnTooltipText(level,type){
-    const newLevel=level>=2?2:level
-    const msgMap={
-      edit:{
-        0:'编辑分组',
-        1:'编辑任务',
-        2:'编辑子任务'
+  onNodeDelete(node, e) {
+    e.stopPropagation();
+  }
+
+  onReturnTooltipText(level, type) {
+    const newLevel = level >= 2 ? 2 : level;
+    const msgMap = {
+      edit: {
+        0: '编辑分组',
+        1: '编辑任务',
+        2: '编辑子任务',
       },
-      add:{
-        0:'在分组下添加任务',
-        1:'在任务下添加子任务',
-        2:'在子任务下添加子任务'
+      add: {
+        0: '在分组下添加任务',
+        1: '在任务下添加子任务',
+        2: '在子任务下添加子任务',
       },
-      delete:{
-        0:'删除分组',
-        1:'删除任务',
-        2:'删除子任务'
-      }
-    }
-    return msgMap[type][newLevel]
+      delete: {
+        0: '删除分组',
+        1: '删除任务',
+        2: '删除子任务',
+      },
+    };
+    return msgMap[type][newLevel];
   }
 }

@@ -1,3 +1,105 @@
-<div class="tree-view">
-  <app-tree-node></app-tree-node>
+<!-- <app-tree-node></app-tree-node> -->
+<div class="edit-task-view">
+  <div class="sidebar-view">
+    <nz-card nzTitle="Card title" [nzExtra]="extraTemplate">
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </nz-card>
+    <ng-template #extraTemplate>
+      <a>所属项目</a>
+    </ng-template>
+
+    <nz-card
+      style="margin-top: 16px"
+      nzTitle="Card title"
+      [nzExtra]="extraTemplate2"
+    >
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </nz-card>
+    <ng-template #extraTemplate2>
+      <a>所属需求</a>
+    </ng-template>
+  </div>
+  <div class="table-tree-view">
+    <nz-table [nzData]="listOfMapData" nzBordered [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let data of listOfMapData">
+          <ng-container *ngFor="let item of mapOfExpandedData[data.key]">
+            <tr *ngIf="(item.parent && item.parent.expand) || !item.parent">
+              <ng-container
+                *ngIf="!editCache[item.key]?.edit; else editTemplate"
+              >
+                <ng-container *ngIf="item.level === 0">
+                  <td
+                    [nzIndentSize]="item.level! * 20"
+                    [nzShowExpand]="!!item.children"
+                    [(nzExpand)]="item.expand"
+                    colspan="5"
+                    class="bold"
+                    (nzExpandChange)="collapse(mapOfExpandedData[data.key], item, $event)"
+                  >
+                    {{ item.name }}<nz-tag [nzColor]="'orange'" style="margin-left:8px;">分组</nz-tag>
+                  </td>
+                </ng-container>
+                <ng-container *ngIf="item.level !== 0">
+                  <td
+                    [nzIndentSize]="item.level! * 20"
+                    [nzShowExpand]="!!item.children"
+                    [(nzExpand)]="item.expand"
+                    (nzExpandChange)="collapse(mapOfExpandedData[data.key], item, $event)"
+                  >
+                    {{ item.name }}
+                    <nz-tag [nzColor]="'green'" *ngIf="item.level===1" style="margin-left:8px;">任务</nz-tag>
+                    <nz-tag [nzColor]="'lime'" *ngIf="item.level>1" style="margin-left:8px;">子任务</nz-tag>
+                  </td>
+                  <td>{{ item.age }}</td>
+                  <td>{{ item.address }}</td>
+                  <td><a (click)="onStartEdit(item)">Edit</a></td>
+                </ng-container>
+              </ng-container>
+              <ng-template #editTemplate>
+                <td>
+                  <input
+                    type="text"
+                    nz-input
+                    [(ngModel)]="editCache[item.key]?.data.name"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    nz-input
+                    [(ngModel)]="editCache[item.key]?.data.age"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    nz-input
+                    [(ngModel)]="editCache[item.key]?.data.address"
+                  />
+                </td>
+                <td>
+                  <a (click)="onSaveEdit(item.key, data.key)">Save</a>
+
+                  <a (click)="onCancelEdit(item.key)">Cancel</a>
+                </td>
+              </ng-template>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </nz-table>
+  </div>
 </div>
