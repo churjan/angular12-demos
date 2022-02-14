@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
+  {
+    path: 'import-plugin',
+    loadChildren: () =>
+      import('./pages/import-plugin/import-plugin.module').then(
+        (m) => m.ImportPluginModule
+      ),
+  },
 ];
 
 @NgModule({
