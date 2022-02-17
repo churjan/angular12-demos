@@ -24,7 +24,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],

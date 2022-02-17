@@ -15,6 +15,11 @@ const routes: Routes = [
         (m) => m.ImportPluginModule
       ),
   },
+  {
+    path: 'widget',
+    loadChildren: () =>
+      import('./pages/widget/widget.module').then((m) => m.WidgetModule),
+  },
 ];
 
 @NgModule({
