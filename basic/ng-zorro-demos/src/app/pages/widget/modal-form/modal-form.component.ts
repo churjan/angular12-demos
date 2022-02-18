@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { FormComponent } from './form/form.component';
 @Component({
   selector: 'app-modal-form',
@@ -7,7 +7,6 @@ import { FormComponent } from './form/form.component';
   styleUrls: ['./modal-form.component.scss'],
 })
 export class ModalFormComponent implements OnInit {
-  FormComponent!:NzModalRef
 
   constructor(private modalService: NzModalService) {}
 
