@@ -1,0 +1,9 @@
+::ng-deep {
+  .arrow-up-icon,
+  .arrow-down-icon {
+    color: #00000073;
+    &:hover {
+      color: #000000d9;
+    }
+  }
+}

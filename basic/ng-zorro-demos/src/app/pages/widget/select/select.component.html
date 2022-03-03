@@ -1,0 +1,43 @@
+<nz-select
+  [(ngModel)]="selectedKey"
+  [nzDropdownMatchSelectWidth]="false"
+  [nzCustomTemplate]="selectTemplate"
+  (ngModelChange)="onChange($event)"
+  nzBorderless
+>
+  <nz-option
+    [nzValue]="item.value"
+    [nzLabel]="item.label"
+    nzCustomContent
+    *ngFor="let item of timeList"
+  >
+    <div name="option" (click)="onOptionClick($event,item)">
+      <span class="mr5">{{ item.label }}</span>
+    <ng-container *ngIf="item.value !== 'none'">
+      <i
+        nz-icon
+        nzType="arrow-up"
+        nzTheme="outline"
+        class="arrow-up-icon mr5"
+        (click)="onClick('asc')"
+        [style.color]="selectedKey===item.value && selectedSort==='asc'?'#1890ff':''"
+      ></i>
+      <i
+        nz-icon
+        nzType="arrow-down"
+        nzTheme="outline"
+        class="arrow-down-icon mr5"
+        (click)="onClick('desc')"
+        [style.color]="selectedKey===item.value && selectedSort==='desc'?'#1890ff':''"
+      ></i>
+    </ng-container>
+    </div>
+  </nz-option>
+</nz-select>
+
+<ng-template #selectTemplate let-node>
+  {{ node.nzLabel }}
+</ng-template>
+
+<div>{{selectedKey}}</div>
+<div>{{selectedSort}}</div>

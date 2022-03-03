@@ -7,15 +7,14 @@ import { FormComponent } from './form/form.component';
   styleUrls: ['./modal-form.component.scss'],
 })
 export class ModalFormComponent implements OnInit {
-
   constructor(private modalService: NzModalService) {}
 
   ngOnInit(): void {}
 
-  onShowModal(){
+  onShowModal() {
     this.modalService.create({
       nzTitle: 'Modal Title',
-      nzContent: FormComponent
+      nzContent: FormComponent,
     });
   }
 }
