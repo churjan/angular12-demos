@@ -8,6 +8,7 @@ import { WidgetComponent } from './widget.component';
 import { ModalFormComponent } from './modal-form/modal-form.component';
 import { FormComponent } from './modal-form/form/form.component';
 import { SelectComponent } from './select/select.component';
+import { TimeFilterSelectComponent } from './select/time-filter-select/time-filter-select.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SelectComponent } from './select/select.component';
     ModalFormComponent,
     FormComponent,
     SelectComponent,
+    TimeFilterSelectComponent,
   ],
   imports: [
     NgZorroAntdModule,
