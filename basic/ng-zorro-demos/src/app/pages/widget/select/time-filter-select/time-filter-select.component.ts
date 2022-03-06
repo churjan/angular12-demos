@@ -49,42 +49,40 @@ export class TimeFilterSelectComponent implements OnInit, ControlValueAccessor {
       value: 'ptl_realenddate',
     },
   ];
-  onlySortChange=false
-
+  onlySortChange = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onChange() {
-    if(this.onlySortChange){
-      this.onlySortChange=false
-      return
+    if (this.onlySortChange) {
+      this.onlySortChange = false;
+      return;
     }
     this.selectedSort = 'asc';
-    this.inputChange()
+    this.inputChange();
   }
 
   onClick(val) {
     this.selectedSort = val;
-    this.inputChange()
-    this.onlySortChange=true
+    this.inputChange();
+    this.onlySortChange = true;
   }
 
-  inputChange(){
+  inputChange() {
     this.propagateOnChange({
       sortField: this.selectedKey,
       sortOrder: this.selectedSort,
     });
   }
 
-
   /**
    * ControlValueAccessor Start
    */
 
   writeValue(value) {
-    if (value!==this.selectedKey) {
+    if (value !== this.selectedKey) {
       this.selectedKey = 'none';
       this.selectedSort = '';
     }

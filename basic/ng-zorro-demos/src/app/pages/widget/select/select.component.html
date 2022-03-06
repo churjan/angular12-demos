@@ -1,4 +1,7 @@
-<app-time-filter-select [ngModel]="sortField" (ngModelChange)="onChange($event)"></app-time-filter-select>
-<div>sortField:{{sortField}}</div>
-<div>sortOrder:{{sortOrder}}</div>
-<button nz-button (click)="sortField='123'">点击</button>
+<app-time-filter-select
+  [ngModel]="sortField"
+  (ngModelChange)="onChange($event)"
+></app-time-filter-select>
+<div>sortField:{{ sortField }}</div>
+<div>sortOrder:{{ sortOrder }}</div>
+<button nz-button (click)="sortField = '123'">点击</button>

@@ -13,9 +13,9 @@ export class SelectComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onChange(e){
-    console.log(e)
-    this.sortField=e.sortField
-    this.sortOrder=e.sortOrder
+  onChange(e) {
+    console.log(e);
+    this.sortField = e.sortField;
+    this.sortOrder = e.sortOrder;
   }
 }
