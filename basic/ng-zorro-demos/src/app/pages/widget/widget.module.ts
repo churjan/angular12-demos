@@ -11,6 +11,9 @@ import { SelectComponent } from './select/select.component';
 import { TimeFilterSelectComponent } from './select/time-filter-select/time-filter-select.component';
 import { TableComponent } from './table/table.component';
 import { AutoHeightTableComponent } from './table/auto-height-table/auto-height-table.component';
+import { TreeComponent } from './tree/tree.component';
+import { TreeSearchComponent } from './tree/tree-search/tree-search.component';
+import { HighlightPipe } from './tree/tree-search/highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { AutoHeightTableComponent } from './table/auto-height-table/auto-height-
     TimeFilterSelectComponent,
     TableComponent,
     AutoHeightTableComponent,
+    TreeComponent,
+    TreeSearchComponent,
+    HighlightPipe,
   ],
   imports: [
     NgZorroAntdModule,
