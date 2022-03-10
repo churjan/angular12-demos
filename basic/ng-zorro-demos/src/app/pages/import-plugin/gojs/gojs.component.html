@@ -1,0 +1,30 @@
+<gojs-diagram
+  [initDiagram]='initDiagram'
+  [nodeDataArray]='state.diagramNodeData'
+  [linkDataArray]='state.diagramLinkData'
+  [modelData]='state.diagramModelData'
+  [skipsDiagramUpdate]='state.skipsDiagramUpdate'
+  (modelChange)='diagramModelChange($event)'
+  [divClassName]='diagramDivClassName'>
+</gojs-diagram>
+
+<gojs-palette
+  [initPalette]='initPalette'
+  [nodeDataArray]='state.paletteNodeData'
+  [divClassName]='paletteDivClassName'>
+</gojs-palette>
+
+
+
+<br>
+<br>
+<br>
+<pre>
+安装插件：
+<code>npm install gojs gojs-angular -S</code>
+module文件引用：
+<code>import {{'{'}} GojsAngularModule {{'}'}} from 'gojs-angular';</code>
+<code>imports: [ GojsAngularModule ]</code>
+ts文件引用：
+<code>import * as go from 'gojs';</code>
+</pre>
