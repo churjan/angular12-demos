@@ -37,6 +37,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
     BrowserAnimationsModule,
     NgZorroAntdModule,
     NzIconModule.forRoot(icons),
+    
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],
