@@ -18,6 +18,18 @@ export class WangEditorComponent implements OnInit, OnDestroy {
 
       this.editor.config.height = 300;
       this.editor.config.excludeMenus = ['code', 'video'];
+      this.editor.config.colors = [
+        'rgb(0,0,0)',
+        'rgb(127,127,127)',
+        'rgb(136,0,21)',
+        'rgb(237,28,36)',
+        'rgb(255,127,39)',
+        'rgb(255,242,0)',
+        'rgb(34,177,76)',
+        'rgb(0,162,232)',
+        'rgb(63,72,204)',
+        'rgb(163,73,164)',
+    ]
       // this.editor.config.customUploadImg = function (resultFiles, insertImgFn) {
       //   // resultFiles 是 input 中选中的文件列表
       //   // insertImgFn 是获取图片 url 后，插入到编辑器的方法
