@@ -12,7 +12,8 @@ export class PreviewFileComponent implements OnInit {
   ngOnInit(): void {}
 
   onPreviewPDF() {
-    const url='https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'
+    // const url='https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'
+    const url='http://192.168.100.44:10081/upload/20220324/202203241313371547.pdf'
     this.pdfViewerOnDemand.pdfSrc = url;
     this.pdfViewerOnDemand.refresh();
   }
