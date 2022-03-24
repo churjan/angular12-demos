@@ -9,6 +9,8 @@ import { ImportPluginComponent } from './import-plugin.component';
 import { EchartsComponent } from './echarts/echarts.component';
 import { GojsComponent } from './gojs/gojs.component';
 import { PreviewFileComponent } from './preview-file/preview-file.component';
+import { RichTextEditorComponent } from './rich-text-editor/rich-text-editor.component';
+import { WangEditorComponent } from './rich-text-editor/wang-editor/wang-editor.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { PreviewFileComponent } from './preview-file/preview-file.component';
     EchartsComponent,
     GojsComponent,
     PreviewFileComponent,
+    RichTextEditorComponent,
+    WangEditorComponent,
   ],
   imports: [
     CommonModule,
