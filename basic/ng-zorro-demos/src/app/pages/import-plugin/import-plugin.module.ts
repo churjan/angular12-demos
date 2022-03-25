@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ImportPluginRoutingModule } from './import-plugin-routing.module';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { GojsAngularModule } from 'gojs-angular';
 
@@ -24,6 +25,8 @@ import { WangEditorComponent } from './rich-text-editor/wang-editor/wang-editor.
   imports: [
     CommonModule,
     ImportPluginRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     GojsAngularModule,
     NgxEchartsModule.forRoot({
