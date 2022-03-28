@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
-
+import { QuillConfiguration } from "./quill-configuration";
 @Component({
   selector: 'app-ngx-quill-editor',
   templateUrl: './ngx-quill-editor.component.html',
@@ -7,7 +7,8 @@ import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class NgxQuillEditorComponent implements OnInit {
-
+  quillConfiguration = QuillConfiguration;
+  
   constructor() { }
 
   ngOnInit(): void {
