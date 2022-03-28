@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  AfterViewInit,
   OnDestroy,
   ViewChild,
   forwardRef,
@@ -22,14 +23,17 @@ import E from 'wangeditor';
   ],
 })
 export class WangEditorComponent
-  implements OnInit, OnDestroy, ControlValueAccessor
+  implements OnInit,AfterViewInit, OnDestroy, ControlValueAccessor
 {
   @ViewChild('editorRef') editorRef;
   editor = null;
   constructor() {}
 
   ngOnInit(): void {
-    setTimeout(() => {
+
+  }
+
+  ngAfterViewInit(): void {
       this.editor = new E(this.editorRef.nativeElement);
       // this.editor.config.height = 300;
       this.editor.config.excludeMenus = ['code', 'video'];
@@ -62,7 +66,6 @@ export class WangEditorComponent
       // );
       // console.log(this.editor.txt.html());
       // console.log(this.editor.txt.text());
-    }, 100);
   }
 
   ngOnDestroy(): void {

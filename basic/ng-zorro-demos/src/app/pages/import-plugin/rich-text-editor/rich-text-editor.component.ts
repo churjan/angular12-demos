@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rich-text-editor.component.scss']
 })
 export class RichTextEditorComponent implements OnInit {
+  contentVal=''
+
   constructor() { }
 
   ngOnInit(): void {
