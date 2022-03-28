@@ -27,6 +27,8 @@
     "ngx-echarts": "^8.0.1",
     "ngx-quill": "^16.2.0",
     "quill": "^1.3.7",
+    "quill-blot-formatter": "^1.0.5",
+    "quill-emoji": "^0.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "wangeditor": "^4.7.12",

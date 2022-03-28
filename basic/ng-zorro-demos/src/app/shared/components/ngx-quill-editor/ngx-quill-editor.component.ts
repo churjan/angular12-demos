@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit,Input, ViewEncapsulation  } from '@angular/core';
 import { QuillConfiguration } from "./quill-configuration";
 @Component({
   selector: 'app-ngx-quill-editor',
@@ -8,10 +8,16 @@ import { QuillConfiguration } from "./quill-configuration";
 })
 export class NgxQuillEditorComponent implements OnInit {
   quillConfiguration = QuillConfiguration;
-  
+  @Input() customerStyle:any={}
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onContentChanged(e){
+    console.log(e)
   }
 
 }
