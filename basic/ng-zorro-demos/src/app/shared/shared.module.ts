@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ModulesModule } from './modules/modules.module';
-import { WangEditorModule } from './wang-editor/wang-editor.module';
+import { ComponentsModule } from './components/components.module';
 @NgModule({
-  imports: [
-    CommonModule
-  ],
   exports:[
     ModulesModule,
-    WangEditorModule
+    ComponentsModule,
   ]
 })
 export class SharedModule { }
