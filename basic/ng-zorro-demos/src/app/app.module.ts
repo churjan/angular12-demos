@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -10,14 +9,12 @@ import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgZorroAntdModule } from './ng-zorro-antd.module';
-
-import { IconDefinition } from '@ant-design/icons-angular';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-
+import {NgZorroAntdModule} from './shared/modules/ng-zorro-antd/ng-zorro-antd.module'
 registerLocaleData(zh);
 
-// 引入全部的图标，不推荐 ❌
+// icon
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 
 const antDesignIcons = AllIcons as {
@@ -37,7 +34,6 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
     BrowserAnimationsModule,
     NgZorroAntdModule,
     NzIconModule.forRoot(icons),
-    
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],
