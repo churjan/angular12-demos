@@ -17,7 +17,8 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "noImplicitAny": false,
-    "strict": false
+    "strict": false,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
