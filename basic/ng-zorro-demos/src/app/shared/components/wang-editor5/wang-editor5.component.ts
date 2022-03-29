@@ -3,9 +3,12 @@ import {
   OnInit,
   Input,
   AfterViewInit,
+  OnDestroy,
   ViewChild,
+  forwardRef,
   ViewEncapsulation,
 } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   createEditor,
   createToolbar,
@@ -20,12 +23,20 @@ type InsertFnType = (url: string, alt: string, href: string) => void;
   selector: 'app-wang-editor5',
   templateUrl: './wang-editor5.component.html',
   styleUrls: ['./wang-editor5.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => WangEditor5Component),
+      multi: true,
+    },
+  ],
   encapsulation: ViewEncapsulation.None,
 })
-export class WangEditor5Component implements OnInit, AfterViewInit {
+export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,ControlValueAccessor {
   @ViewChild('toolbarContainer') toolbarContainer;
   @ViewChild('editorContainer') editorContainer;
   editorConfig: Partial<IEditorConfig> = {};
+  toolbarConfig: Partial<IToolbarConfig> = {};
   editor=null
   toolbar=null
   @Input() customerStyle: any = {};
@@ -38,7 +49,8 @@ export class WangEditor5Component implements OnInit, AfterViewInit {
     this.editorConfig = {
       placeholder: '请输入内容',
       onChange: (editor: IDomEditor) => {
-        console.log('html', editor.getHtml());
+        // console.log('html', editor.getHtml());
+        this.propagateOnChange(editor.getHtml());
       },
       MENU_CONF:{
         uploadImage:{
@@ -56,13 +68,7 @@ export class WangEditor5Component implements OnInit, AfterViewInit {
       }
     };
 
-    this.editor = createEditor({
-      selector: this.editorContainer.nativeElement,
-      config: this.editorConfig,
-      mode: 'default', // 或 'simple' 参考下文
-    });
-
-    const toolbarConfig: Partial<IToolbarConfig> = {
+    this.toolbarConfig= {
       toolbarKeys: [
         'headerSelect',
         'blockquote',
@@ -134,12 +140,42 @@ export class WangEditor5Component implements OnInit, AfterViewInit {
       ],
     };
 
+    this.editor = createEditor({
+      selector: this.editorContainer.nativeElement,
+      config: this.editorConfig,
+      mode: 'default', // 或 'simple' 参考下文
+    });
+    
     this.toolbar = createToolbar({
       editor:this.editor,
       selector: this.toolbarContainer.nativeElement,
-      config: toolbarConfig,
+      config: this.toolbarConfig,
       mode: 'default', // 或 'simple' 参考下文
     });
-    console.log(this.toolbar.getConfig().toolbarKeys);
+  }
+
+  ngOnDestroy(): void {
+    if(this.editor){
+      this.editor.destroy()
+      this.editor=null
+      this.toolbar=null
+    }
+  }
+
+  writeValue(value) {
+    console.log(111, value);
+    if (value) {
+      setTimeout(() => {
+        this.editor.dangerouslyInsertHtml(value)
+      }, 300);
+    }
+  }
+  propagateOnChange: (value: any) => void = (_: any) => {};
+  propagateOnTouched: (value: any) => void = (_: any) => {};
+  registerOnChange(fn: any) {
+    this.propagateOnChange = fn;
+  }
+  registerOnTouched(fn: any) {
+    this.propagateOnTouched = fn;
   }
 }
