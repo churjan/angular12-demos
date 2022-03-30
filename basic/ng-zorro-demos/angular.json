@@ -37,8 +37,7 @@
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/styles.scss",
-              "./node_modules/quill-emoji/dist/quill-emoji.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
