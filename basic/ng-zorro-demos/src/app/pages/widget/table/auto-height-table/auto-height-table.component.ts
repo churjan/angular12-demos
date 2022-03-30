@@ -4,7 +4,7 @@ import { Component, OnInit, AfterViewInit, ViewChild,HostListener } from '@angul
   templateUrl: './auto-height-table.component.html',
   styleUrls: ['./auto-height-table.component.scss'],
 })
-export class AutoHeightTableComponent implements OnInit {
+export class AutoHeightTableComponent implements OnInit,AfterViewInit {
   @ViewChild('tableView') tableView;
   listOfData = [];
   tableHeight = 0;
