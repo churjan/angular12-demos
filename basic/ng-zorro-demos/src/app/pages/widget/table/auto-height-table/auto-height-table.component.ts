@@ -27,7 +27,7 @@ export class AutoHeightTableComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.fetchList();
+    // this.fetchList();
   }
 
   getParams() {
