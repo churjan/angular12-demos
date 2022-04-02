@@ -32,13 +32,15 @@ type InsertFnType = (url: string, alt: string, href: string) => void;
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,ControlValueAccessor {
+export class WangEditor5Component
+  implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor
+{
   @ViewChild('toolbarContainer') toolbarContainer;
   @ViewChild('editorContainer') editorContainer;
   editorConfig: Partial<IEditorConfig> = {};
   toolbarConfig: Partial<IToolbarConfig> = {};
-  editor=null
-  toolbar=null
+  editor = null;
+  toolbar = null;
   @Input() customerStyle: any = {};
 
   constructor() {}
@@ -52,8 +54,8 @@ export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,Con
         // console.log('html', editor.getHtml());
         this.propagateOnChange(editor.getHtml());
       },
-      MENU_CONF:{
-        uploadImage:{
+      MENU_CONF: {
+        uploadImage: {
           async customUpload(file: File, insertFn: InsertFnType) {
             // file 即选中的文件
             // 自己实现上传，并得到图片 url alt href
@@ -64,11 +66,11 @@ export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,Con
             const href = '';
             insertFn(url, alt, href);
           },
-        }
-      }
+        },
+      },
     };
 
-    this.toolbarConfig= {
+    this.toolbarConfig = {
       toolbarKeys: [
         'headerSelect',
         'blockquote',
@@ -145,9 +147,9 @@ export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,Con
       config: this.editorConfig,
       mode: 'default', // 或 'simple' 参考下文
     });
-    
+
     this.toolbar = createToolbar({
-      editor:this.editor,
+      editor: this.editor,
       selector: this.toolbarContainer.nativeElement,
       config: this.toolbarConfig,
       mode: 'default', // 或 'simple' 参考下文
@@ -155,10 +157,10 @@ export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,Con
   }
 
   ngOnDestroy(): void {
-    if(this.editor){
-      this.editor.destroy()
-      this.editor=null
-      this.toolbar=null
+    if (this.editor) {
+      this.editor.destroy();
+      this.editor = null;
+      this.toolbar = null;
     }
   }
 
@@ -166,7 +168,7 @@ export class WangEditor5Component implements OnInit, AfterViewInit,OnDestroy,Con
     console.log(111, value);
     if (value) {
       setTimeout(() => {
-        this.editor.dangerouslyInsertHtml(value)
+        this.editor.dangerouslyInsertHtml(value);
       }, 300);
     }
   }
