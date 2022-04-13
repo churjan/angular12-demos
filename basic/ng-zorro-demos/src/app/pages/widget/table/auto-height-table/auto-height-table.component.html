@@ -1,36 +1,60 @@
-<div #tableView class="table-view">
-  <nz-table [nzData]="listOfData" [nzScroll]="{ y: tableHeight + 'px' }">
-    <thead>
-      <tr>
-        <th nzLeft>Full Name</th>
-        <th nzLeft>Age</th>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
-        <th>Column 5</th>
-        <th>Column 6</th>
-        <th>Column 7</th>
-        <th>Column 8</th>
-        <th nzRight>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of listOfData">
-        <td nzLeft>{{ data.name }}</td>
-        <td nzLeft>{{ data.age }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.address }}</td>
-        <td nzRight>
-          <a>action</a>
-        </td>
-      </tr>
-    </tbody>
-  </nz-table>
+<div class="page-view">
+  <div class="filter-view mb16">
+    <input
+      nz-input
+      placeholder="请输入关键词"
+      [(ngModel)]="keywords"
+      (keyup.enter)="onKeyUp($event)"
+      class="mr8"
+      style="width: 200px"
+    />
+    <button nz-button nzType="primary" (click)="onSearch()" class="mr8">
+      <i nz-icon nzType="search"></i>搜索
+    </button>
+    <button nz-button nzType="default" (click)="onReset()" class="mr8">
+      <i nz-icon nzType="redo"></i>重置
+    </button>
+  </div>
+  <div #tableView class="table-view">
+    <nz-table
+      [nzData]="tableTable"
+      nzShowSizeChanger
+      [nzFrontPagination]="false"
+      [nzLoading]="isLoading"
+      [nzTotal]="total"
+      [nzPageSize]="pageSize"
+      [nzPageIndex]="pageIndex"
+      [nzBordered]="true"
+      nzSize="small"
+      [nzShowTotal]="totalTemplate"
+      (nzQueryParams)="onQueryParamsChange($event)"
+      [nzScroll]="{ x: 'auto', y: tableHeight + 'px' }"
+    >
+      <thead>
+        <tr>
+          <th nzWidth="50px" [nzAlign]="'center'" nzLeft>序号</th>
+          <th nzWidth="150px" nzColumnKey="pj_name" [nzSortFn]="true">
+            Column 1
+          </th>
+          <th nzWidth="150px">Column 2</th>
+          <th nzWidth="150px">Column 3</th>
+          <th nzWidth="100px" nzRight>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of tableTable; let i = index">
+          <td [nzAlign]="'center'" nzLeft>
+            {{ pageSize * (pageIndex - 1) + i + 1 }}
+          </td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td nzRight>
+            <a>action</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <ng-template #totalTemplate let-total> 共 {{ total }} 条 </ng-template>
+  </div>
 </div>
