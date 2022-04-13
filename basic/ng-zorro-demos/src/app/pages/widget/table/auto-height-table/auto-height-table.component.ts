@@ -1,10 +1,16 @@
-import { Component, OnInit, AfterViewInit, ViewChild,HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  HostListener,
+} from '@angular/core';
 @Component({
   selector: 'app-auto-height-table',
   templateUrl: './auto-height-table.component.html',
   styleUrls: ['./auto-height-table.component.scss'],
 })
-export class AutoHeightTableComponent implements OnInit {
+export class AutoHeightTableComponent implements OnInit, AfterViewInit {
   @ViewChild('tableView') tableView;
   listOfData = [];
   tableHeight = 0;
@@ -22,7 +28,7 @@ export class AutoHeightTableComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.autoSize()
+    this.autoSize();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -30,11 +36,10 @@ export class AutoHeightTableComponent implements OnInit {
     this.autoSize();
   }
 
-  autoSize(){
+  autoSize() {
     setTimeout(() => {
       this.tableHeight = this.tableView.nativeElement.clientHeight - 55 - 64;
       console.log(this.tableHeight);
     }, 10);
   }
-
 }
