@@ -13,7 +13,6 @@ export class GojsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
   diagramDivClassName = 'myDiagramDiv';
   state = {
     diagramNodeData: [
@@ -24,8 +23,6 @@ export class GojsComponent implements OnInit {
     diagramModelData: { prop: 'value' },
     skipsDiagramUpdate: false,
   };
-
-  
 
   initDiagram(): go.Diagram {
     const $ = go.GraphObject.make;

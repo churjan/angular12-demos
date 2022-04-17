@@ -167,9 +167,9 @@ export class WangEditor5Component
   writeValue(value) {
     console.log(111, value);
     if (value) {
-        this.editor.select([]);
-        this.editor.deleteFragment();
-        this.editor.dangerouslyInsertHtml(value);
+      this.editor.select([]);
+      this.editor.deleteFragment();
+      this.editor.dangerouslyInsertHtml(value);
     }
   }
   propagateOnChange: (value: any) => void = (_: any) => {};

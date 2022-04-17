@@ -31,8 +31,6 @@ export class HighlightPipe implements PipeTransform {
         });
 
         return this.sanitizer.bypassSecurityTrustHtml(html);
-
-
       }
 
       return value;

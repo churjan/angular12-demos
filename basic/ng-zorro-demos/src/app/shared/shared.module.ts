@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { ModulesModule } from './modules/modules.module';
 import { ComponentsModule } from './components/components.module';
 @NgModule({
-  exports:[
-    ModulesModule,
-    ComponentsModule,
-  ]
+  exports: [ModulesModule, ComponentsModule],
 })
-export class SharedModule { }
+export class SharedModule {}

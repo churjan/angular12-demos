@@ -1,17 +1,17 @@
-.page-view{
+.page-view {
   height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  .filter-view{
+  .filter-view {
     display: flex;
     justify-content: flex-end;
   }
   .table-view {
-    flex:1;
+    flex: 1;
   }
 }
 
-:host ::ng-deep .ant-table-pagination.ant-pagination{
+:host ::ng-deep .ant-table-pagination.ant-pagination {
   margin: 16px 0 0;
 }
