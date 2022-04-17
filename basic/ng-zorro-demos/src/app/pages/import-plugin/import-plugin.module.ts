@@ -10,7 +10,6 @@ import { GojsAngularModule } from 'gojs-angular';
 import { ImportPluginComponent } from './import-plugin.component';
 import { EchartsComponent } from './echarts/echarts.component';
 import { GojsComponent } from './gojs/gojs.component';
-import { PreviewFileComponent } from './preview-file/preview-file.component';
 import { RichTextEditorComponent } from './rich-text-editor/rich-text-editor.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { RichTextEditorComponent } from './rich-text-editor/rich-text-editor.com
     ImportPluginComponent,
     EchartsComponent,
     GojsComponent,
-    PreviewFileComponent,
     RichTextEditorComponent,
   ],
   imports: [
