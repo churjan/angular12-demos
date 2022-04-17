@@ -5,6 +5,7 @@
   <i nz-icon nzType="search"></i>
 </ng-template>
 <nz-tree
+  #tree
   [nzData]="nodes"
   [nzSearchValue]="searchValue"
   (nzClick)="nzEvent($event)"
