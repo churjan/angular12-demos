@@ -1,1 +1,18 @@
-<p>category works!</p>
+<nz-input-group [nzSuffix]="suffixIcon">
+  <input type="text" nz-input placeholder="Search" [(ngModel)]="searchValue" />
+</nz-input-group>
+<ng-template #suffixIcon>
+  <i nz-icon nzType="search"></i>
+</ng-template>
+<nz-tree
+  [nzData]="nodes"
+  [nzSearchValue]="searchValue"
+  (nzClick)="nzEvent($event)"
+  (nzExpandChange)="nzEvent($event)"
+  (nzSearchValueChange)="nzEvent($event)"
+  [nzTreeTemplate]="nzTreeTemplate"
+></nz-tree>
+
+<ng-template #nzTreeTemplate let-node let-origin="origin">
+  <span [innerHtml]="node.title | highlight: searchValue"></span>
+</ng-template>

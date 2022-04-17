@@ -12,8 +12,6 @@ import { TimeFilterSelectComponent } from './select/time-filter-select/time-filt
 import { TableComponent } from './table/table.component';
 import { AutoHeightTableComponent } from './table/auto-height-table/auto-height-table.component';
 import { TreeComponent } from './tree/tree.component';
-import { TreeSearchComponent } from './tree/tree-search/tree-search.component';
-import { HighlightPipe } from './tree/tree-search/highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,6 @@ import { HighlightPipe } from './tree/tree-search/highlight.pipe';
     TableComponent,
     AutoHeightTableComponent,
     TreeComponent,
-    TreeSearchComponent,
-    HighlightPipe,
   ],
   imports: [
     SharedModule,
