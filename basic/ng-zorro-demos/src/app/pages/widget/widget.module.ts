@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgZorroAntdModule } from 'src/app/ng-zorro-antd.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WidgetRoutingModule } from './widget-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +29,6 @@ import { HighlightPipe } from './tree/tree-search/highlight.pipe';
     HighlightPipe,
   ],
   imports: [
-    NgZorroAntdModule,
     SharedModule,
     CommonModule,
     WidgetRoutingModule,

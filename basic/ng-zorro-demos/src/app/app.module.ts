@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(zh);
-import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { ZorroAntdModule } from './shared/modules/zorro-antd.module';
 // icon
 import { IconDefinition } from '@ant-design/icons-angular';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -31,7 +31,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule,
+    ZorroAntdModule,
     NzIconModule.forRoot(icons),
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
