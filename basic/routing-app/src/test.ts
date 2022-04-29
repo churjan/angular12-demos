@@ -4,17 +4,13 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
+  platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
 declare const require: {
-  context(
-    path: string,
-    deep?: boolean,
-    filter?: RegExp
-  ): {
-    keys(): string[];
+  context(path: string, deep?: boolean, filter?: RegExp): {
     <T>(id: string): T;
+    keys(): string[];
   };
 };
 
@@ -22,7 +18,6 @@ declare const require: {
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
-  { teardown: { destroyAfterEach: true } }
 );
 
 // Then we find all the tests.
