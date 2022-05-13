@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'zorro-template'`, () => {
+  it(`should have as title 'zorro-i18n'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('zorro-template');
+    expect(app.title).toEqual('zorro-i18n');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('zorro-template app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('zorro-i18n app is running!');
   });
 });
