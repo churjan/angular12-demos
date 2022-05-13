@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/zorro-import-icon'),
+      dir: require('path').join(__dirname, './coverage/zorro-template'),
       subdir: '.',
       reporters: [
         { type: 'html' },
