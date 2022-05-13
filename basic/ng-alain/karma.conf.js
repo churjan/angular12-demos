@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/zorro-template'),
+      dir: require('path').join(__dirname, './coverage/ng-alain'),
       subdir: '.',
       reporters: [
         { type: 'html' },

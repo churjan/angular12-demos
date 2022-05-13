@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "zorro-template": {
+    "ng-alain": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/zorro-template",
+            "outputPath": "dist/ng-alain",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,15 +28,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/theme.less",
               "src/styles.scss"
             ],
             "scripts": []
@@ -78,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "zorro-template:build:production"
+              "browserTarget": "ng-alain:build:production"
             },
             "development": {
-              "browserTarget": "zorro-template:build:development"
+              "browserTarget": "ng-alain:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "zorro-template:build"
+            "browserTarget": "ng-alain:build"
           }
         },
         "test": {
@@ -113,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "zorro-template"
+  "defaultProject": "ng-alain"
 }
