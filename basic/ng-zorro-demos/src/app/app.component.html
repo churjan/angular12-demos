@@ -59,6 +59,16 @@
           </li>
         </ul>
       </li>
+      <li nz-submenu nzOpen nzTitle="表格" nzIcon="appstore">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/', 'table','table']">基础表格</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/', 'table', 'dynamic-column']">列拖拽</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nz-sider>
   <nz-layout>

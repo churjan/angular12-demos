@@ -20,6 +20,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/widget/widget.module').then((m) => m.WidgetModule),
   },
+  {
+    path: 'table',
+    loadChildren: () =>
+      import('./pages/table/table.module').then((m) => m.TableModule),
+  },
 ];
 
 @NgModule({
