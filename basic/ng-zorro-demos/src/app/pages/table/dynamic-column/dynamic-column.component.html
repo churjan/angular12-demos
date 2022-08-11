@@ -5,12 +5,9 @@
           <th
             *ngIf="col.width"
             nz-resizable
-            nzBounds="window"
             nzPreview
             [nzWidth]="col.width"
-            [nzMaxWidth]="1600"
-            [nzMinWidth]="60"
-            (nzResizeEnd)="onResize($event, col.title)"
+            (nzResize)="onResize($event, col.title)"
             
           >
             {{ col.title }}

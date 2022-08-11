@@ -46,9 +46,11 @@ export class DynamicColumnComponent implements OnInit {
     },
   ];
   onResize({ width }: NzResizeEvent, col: string): void {
-    this.cols = this.cols.map((e) =>
-      e.title === col ? { ...e, width: `${width}px` } : e
-    );
+    this.cols.map(e=>{
+      if(e.title===col){
+        e.width=`${width}px`
+      }
+    })
   }
   ngOnInit(): void {}
 }
