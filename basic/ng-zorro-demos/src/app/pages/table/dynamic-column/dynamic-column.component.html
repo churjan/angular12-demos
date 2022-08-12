@@ -1,11 +1,10 @@
-<nz-table #basicTable [nzData]="listOfData" [nzScroll]="{y:'auto'}">
+<nz-table #basicTable [nzData]="listOfData" [nzScroll]="{x:'auto'}">
     <thead>
       <tr>
         <ng-container *ngFor="let col of cols">
           <th
             *ngIf="col.width"
             nz-resizable
-            nzPreview
             [nzWidth]="col.width"
             (nzResize)="onResize($event, col.title)"
             
